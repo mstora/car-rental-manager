@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class ClientService {
 
-    private ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;

@@ -8,7 +8,7 @@ import pl.sda.carrentalmanager.services.ClientService;
 @Controller
 public class ClientController {
 
-    private ClientService clientService;
+    private final ClientService clientService;
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
