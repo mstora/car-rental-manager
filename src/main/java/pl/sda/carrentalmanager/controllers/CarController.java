@@ -17,7 +17,7 @@ public class CarController {
     @GetMapping("/cars")
     public ModelAndView listOfCars() {
         ModelAndView modelAndView = new ModelAndView("cars");
-        modelAndView.addObject("cars", carService.getAll());
+        modelAndView.addObject("cars", carService.findAll());
         return modelAndView;
     }
 }
