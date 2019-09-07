@@ -1,4 +1,4 @@
-package pl.sda.projektgrupowy;
+package pl.sda.carrentalmanager;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,13 +1,13 @@
-package pl.sda.projektgrupowy;
+package pl.sda.carrentalmanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjektGrupowyApplication {
+public class App {
 
     public static void main(String[] args) {
-        SpringApplication.run(ProjektGrupowyApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 
 }
