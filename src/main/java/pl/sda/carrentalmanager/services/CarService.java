@@ -11,7 +11,6 @@ public class CarService {
 
     private final CarRepository carRepository;
 
-
     public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
@@ -19,7 +18,4 @@ public class CarService {
     public List<Car> findAll() {
        return carRepository.findAll();
     }
-
-
-
 }

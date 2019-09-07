@@ -9,13 +9,14 @@ import javax.persistence.ManyToOne;
 import java.util.Collection;
 
 @Entity
-public class User implements UserDetails {
+public  class User implements UserDetails {
 
     @Id
     private String login;
     private String password;
     @ManyToOne(targetEntity = Role.class)
     private Role role;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
