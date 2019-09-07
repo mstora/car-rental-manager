@@ -17,7 +17,7 @@ public class RentalController {
     @GetMapping("/rentals")
     public ModelAndView listOfRentals() {
         ModelAndView modelAndView = new ModelAndView("rentals");
-        modelAndView.addObject("rentals", rentalService.getAll());
+        modelAndView.addObject("rentals", rentalService.findAll());
         return modelAndView;
     }
 }

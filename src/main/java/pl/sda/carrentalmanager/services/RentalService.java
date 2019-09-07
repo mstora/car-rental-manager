@@ -8,13 +8,13 @@ import java.util.List;
 
 @Service
 public class RentalService {
-    private RentalRepository rentalRepository;
+    private final RentalRepository rentalRepository;
 
     public RentalService(RentalRepository rentalRepository) {
         this.rentalRepository = rentalRepository;
     }
 
-    public List<Rental> getAll() {
+    public List<Rental> findAll() {
         return rentalRepository.findAll();
     }
 }
