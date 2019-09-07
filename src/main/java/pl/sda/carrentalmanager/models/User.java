@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import java.util.Collection;
 
 @Entity
-public   User implements UserDetails {
+public  class User implements UserDetails {
 
     @Id
     private String login;
