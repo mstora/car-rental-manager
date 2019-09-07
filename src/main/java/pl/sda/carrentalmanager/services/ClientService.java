@@ -16,10 +16,7 @@ public class ClientService {
 
     }
 
-
     public List<Client> getAll() {
         return clientRepository.findAll();
-
     }
-
 }
