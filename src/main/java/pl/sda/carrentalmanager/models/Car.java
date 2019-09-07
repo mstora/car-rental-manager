@@ -2,23 +2,29 @@ package pl.sda.carrentalmanager.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @Entity
 public class Car {
 
     @Id
-    private Long id;
+    private String id;
     private String brand;
     private String model;
     private int mileage;
     private boolean isDamaged;
     private boolean isAvailable;
     private int pricePerDay;
+    @OneToMany(mappedBy = "car")
+    private Set<Rental> rentals = new HashSet<>();
 
     public Car() {
     }
 
-    public Car(Long id, String brand, String model, int mileage, boolean isDamaged, boolean isAvailable, int pricePerDay) {
+    public Car(String id, String brand, String model, int mileage, boolean isDamaged, boolean isAvailable, int pricePerDay) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -28,11 +34,11 @@ public class Car {
         this.pricePerDay = pricePerDay;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -82,6 +88,14 @@ public class Car {
 
     public void setPricePerDay(int pricePerDay) {
         this.pricePerDay = pricePerDay;
+    }
+
+    public Set<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(Set<Rental> rentals) {
+        this.rentals = rentals;
     }
 
     @Override

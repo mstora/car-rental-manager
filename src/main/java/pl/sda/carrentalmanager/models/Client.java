@@ -2,8 +2,11 @@ package pl.sda.carrentalmanager.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Client {
@@ -13,6 +16,9 @@ public class Client {
     private String name;
     private String lastName;
     private LocalDate dateOfBirth;
+
+    @OneToMany(mappedBy = "client")
+    private Set<Rental> rentals = new HashSet<>();
 
     public Client() {
     }
@@ -54,6 +60,14 @@ public class Client {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Set<Rental> getRentals() {
+        return rentals;
+    }
+
+    public void setRentals(Set<Rental> rentals) {
+        this.rentals = rentals;
     }
 
     @Override

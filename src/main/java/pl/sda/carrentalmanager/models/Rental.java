@@ -14,6 +14,8 @@ public class Rental {
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
     private LocalDate dateOfRental;
     private LocalDate dateOfReturn;
