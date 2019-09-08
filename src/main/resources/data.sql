@@ -4,7 +4,7 @@ values ('PP42069', 'Fiat', 'Multipla', 123456, 0, 1, 150),
 ('PO5553', 'Mazda', '3', 5000, 0, 1, 250),
 ('PO9933', 'VW', 'Passat', 12000, 0, 0 , 300),
 ('PO4343', 'BMW', '5', 8000, 0, 0, 550);
-commit;
+
 insert into CLIENT (id, name, last_name, date_of_birth)
 values ('90101012345', 'Lukasz', 'Tararynowicz', '1990-10-10'),
 ('87122512345', 'Kazmierz', 'Nowak', '1987-12-25'),
@@ -12,7 +12,7 @@ values ('90101012345', 'Lukasz', 'Tararynowicz', '1990-10-10'),
 ('69042012345', 'Krzysztof', 'Kups', '1969-04-20'),
 ('94070712345', 'Krystyna', 'Czubowna', '1994-07-07'),
 ('90022812345', 'Jeżuś', 'Chytrus', '1990-02-28');
-commit;
+
 insert into RENTAL (id, car_id, client_id, date_of_rental,
                     date_of_return, mileage, is_damaged,
                     is_rented, deposit, total_price)
@@ -31,7 +31,3 @@ insert into ROLE (id, authority) values (nextval('role_seq'), 'ADMIN');
 insert INTO USER (username, password, first_name, last_name, role_id)
 values ('user', '$2a$10$LuYcF8ajzSrKybB0MfCv7Ol/ib03tqSH63sEhnVuAvqESdIATD7Hy', 'Imie', 'Nazwisko', 1),
 ('admin', '$2a$10$LuYcF8ajzSrKybB0MfCv7Ol/ib03tqSH63sEhnVuAvqESdIATD7Hy', 'Imie1', 'Nazwisko1', 2);
-
-/* password: password */
-
-commit;

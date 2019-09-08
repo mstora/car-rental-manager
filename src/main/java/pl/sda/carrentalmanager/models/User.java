@@ -1,8 +1,5 @@
 package pl.sda.carrentalmanager.models;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -20,7 +17,6 @@ public class User implements UserDetails {
     private String lastName;
     @ManyToOne(targetEntity = Role.class)
     private Role role;
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

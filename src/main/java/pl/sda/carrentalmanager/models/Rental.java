@@ -10,7 +10,7 @@ public class Rental {
     @Id
     @GeneratedValue(generator = "rentSeq")
     @SequenceGenerator(name = "rentSeq", sequenceName = "rent_seq", allocationSize = 1, initialValue = 1)
-    private String id;
+    private Long id;
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
@@ -28,7 +28,7 @@ public class Rental {
     public Rental() {
     }
 
-    public Rental(String id, Car car, Client client, LocalDate dateOfRental, LocalDate dateOfReturn, int mileage, boolean isDamaged, boolean isRented, int deposit, int totalPrice) {
+    public Rental(Long id, Car car, Client client, LocalDate dateOfRental, LocalDate dateOfReturn, int mileage, boolean isDamaged, boolean isRented, int deposit, int totalPrice) {
         this.id = id;
         this.car = car;
         this.client = client;
@@ -41,11 +41,11 @@ public class Rental {
         this.totalPrice = totalPrice;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
