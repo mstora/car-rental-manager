@@ -1,5 +1,7 @@
 package pl.sda.carrentalmanager.models;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import java.util.Objects;
 
 @Entity
-public class Role{
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(generator = "roleSeq")
