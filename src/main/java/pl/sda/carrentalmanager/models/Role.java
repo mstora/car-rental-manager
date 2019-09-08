@@ -1,5 +1,7 @@
 package pl.sda.carrentalmanager.models;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -7,17 +9,13 @@ import javax.persistence.SequenceGenerator;
 import java.util.Objects;
 
 @Entity
-public class Role{
+public class Role implements GrantedAuthority {
 
     @Id
     @GeneratedValue(generator = "roleSeq")
     @SequenceGenerator(name = "roleSeq", sequenceName = "role_seq", allocationSize = 1)
     private Long id;
-    private String roleName;
-
-    public Role(String roleName) {
-        this.roleName = roleName;
-    }
+    private String authority;
 
     public Long getId() {
         return id;
@@ -27,14 +25,14 @@ public class Role{
         this.id = id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    @Override
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -42,11 +40,11 @@ public class Role{
         if (o == null || getClass() != o.getClass()) return false;
         Role role = (Role) o;
         return Objects.equals(id, role.id) &&
-                Objects.equals(roleName, role.roleName);
+                Objects.equals(authority, role.authority);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roleName);
+        return Objects.hash(id, authority);
     }
 }

@@ -24,4 +24,10 @@ values
 (nextval('rent_seq'),'PO9933', '94070712345', '2019-09-07', '2019-09-10', 0, 0, 1, 300, 900),
 (nextval('rent_seq'),'PO4343', '90022812345', '2019-09-06', '2019-09-12', 0, 0, 1, 1000, 3300);
 
-commit;
+
+insert into ROLE (id, authority) values (nextval('role_seq'), 'USER');
+insert into ROLE (id, authority) values (nextval('role_seq'), 'ADMIN');
+
+insert INTO USER (username, password, first_name, last_name, role_id)
+values ('user', '$2a$10$LuYcF8ajzSrKybB0MfCv7Ol/ib03tqSH63sEhnVuAvqESdIATD7Hy', 'Imie', 'Nazwisko', 1),
+('admin', '$2a$10$LuYcF8ajzSrKybB0MfCv7Ol/ib03tqSH63sEhnVuAvqESdIATD7Hy', 'Imie1', 'Nazwisko1', 2);
