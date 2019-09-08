@@ -20,12 +20,12 @@
     </thead>
     <tbody>
     <tr th:each="car:${cars}">
-        <td th:text="${car.id}">1</td>
+        <td th:text="${car.id}">Id</td>
         <td th:text="${car.brand}">Brand</td>
         <td th:text="${car.model}">Model</td>
         <td th:text="${car.mileage}">Mileage</td>
-        <td th:text="${car.isDamaged}">Damaged</td>
-        <td th:text="${car.isAvailable}">Available</td>
+        <td th:text="${car.isDamaged()}">Damaged</td>
+        <td th:text="${car.isAvailable()}">Available</td>
         <td th:text="${car.pricePerDay}">Price</td>
     </tr>
     </tbody>
