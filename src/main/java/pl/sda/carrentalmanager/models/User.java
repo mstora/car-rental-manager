@@ -7,10 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 @Entity
-public  class User implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     private String username;
@@ -23,7 +24,7 @@ public  class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(role);
     }
 
     @Override
@@ -55,6 +56,7 @@ public  class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -74,6 +76,7 @@ public  class User implements UserDetails {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,5 +89,4 @@ public  class User implements UserDetails {
     public int hashCode() {
         return Objects.hash(username);
     }
-
 }
