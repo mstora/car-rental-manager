@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details View</title>
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID/th>
+        <th>Brand</th>
+        <th>Model</th>
+        <th>Mileage</th>
+        <th>isDamaged</th>
+        <th>isAvailable</th>
+        <th>Price per Day</th>
+    </tr>
+    </thead>
+    <tr>
+
+        <td th:text="${car.id}">Id</td>
+        <td th:text="${}">Brand</td>
+        <td>${car.model}</td>
+        <td>${car.mileage}</td>
+        <td>${car.isDamaged()}</td>
+        <td>${car.isAvailable()}</td>
+        <td>${car.pricePerDay}</td>
+    </tr>
+</table>
+<a href="/cars">Go back to cars list</a>
+</body>
+</html>
