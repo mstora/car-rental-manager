@@ -29,7 +29,7 @@
         <td th:text="${car.isDamaged()}">Damaged</td>
         <td th:text="${car.isAvailable()}">Available</td>
         <td th:text="${car.pricePerDay}">Price</td>
-        <td><a th:href="@{/cars/${car.id}}">Details</a></td>
+        <td><a th:href="@{'/cars/'+${car.id}}">Details</a></td>
 
 
     </tr>
