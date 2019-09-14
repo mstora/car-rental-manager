@@ -20,11 +20,12 @@ public class Car {
     private int pricePerDay;
     @OneToMany(mappedBy = "car")
     private Set<Rental> rentals = new HashSet<>();
+    private boolean exist;
 
     public Car() {
     }
 
-    public Car(String id, String brand, String model, int mileage, boolean isDamaged, boolean isAvailable, int pricePerDay) {
+    public Car(String id, String brand, String model, int mileage, boolean isDamaged, boolean isAvailable, int pricePerDay, boolean exist) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -32,6 +33,15 @@ public class Car {
         this.isDamaged = isDamaged;
         this.isAvailable = isAvailable;
         this.pricePerDay = pricePerDay;
+        this.exist = exist;
+    }
+
+    public boolean isExist() {
+        return exist;
+    }
+
+    public void setExist(boolean exist) {
+        this.exist = exist;
     }
 
     public String getId() {
@@ -107,6 +117,7 @@ public class Car {
                 isDamaged == car.isDamaged &&
                 isAvailable == car.isAvailable &&
                 pricePerDay == car.pricePerDay &&
+                exist == car.exist &&
                 Objects.equals(id, car.id) &&
                 Objects.equals(brand, car.brand) &&
                 Objects.equals(model, car.model);
@@ -114,7 +125,7 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, mileage, isDamaged, isAvailable, pricePerDay);
+        return Objects.hash(id, brand, model, mileage, isDamaged, isAvailable, pricePerDay, exist);
     }
 }
 

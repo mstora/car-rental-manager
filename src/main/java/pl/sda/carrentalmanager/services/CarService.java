@@ -17,14 +17,18 @@ public class CarService {
     }
 
     public List<Car> findAll() {
-       return carRepository.findAll();
+        return carRepository.findByExist(true);
     }
 
     public Car findById(String id) {
-        return carRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Car with id: " + id + " not found"));
+        return carRepository
+                .findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Car with id: " + id + " not found"));
     }
 
     public void deleteById(String id) {
-        carRepository.deleteById(id);
+        Car carTemp = findById(id);
+        carTemp.setExist(false);
+        carRepository.save(carTemp);
     }
 }
