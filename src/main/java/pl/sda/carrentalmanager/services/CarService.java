@@ -25,6 +25,6 @@ public class CarService {
     }
 
     public void deleteById(String id) {
-//        Car car = carRepository.f
+        carRepository.deleteById(id);
     }
 }

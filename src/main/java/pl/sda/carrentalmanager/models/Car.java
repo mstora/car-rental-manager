@@ -109,11 +109,14 @@ public class Car {
                 pricePerDay == car.pricePerDay &&
                 Objects.equals(id, car.id) &&
                 Objects.equals(brand, car.brand) &&
-                Objects.equals(model, car.model);
+                Objects.equals(model, car.model) &&
+                Objects.equals(rentals, car.rentals);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, mileage, isDamaged, isAvailable, pricePerDay);
+        return Objects.hash(id, brand, model, mileage, isDamaged, isAvailable, pricePerDay, rentals);
     }
 }
+
+
