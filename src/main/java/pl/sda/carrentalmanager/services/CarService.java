@@ -1,6 +1,7 @@
 package pl.sda.carrentalmanager.services;
 
 import org.springframework.stereotype.Service;
+import pl.sda.carrentalmanager.exceptions.ItemNotFoundException;
 import pl.sda.carrentalmanager.models.Car;
 import pl.sda.carrentalmanager.repositories.CarRepository;
 
@@ -17,5 +18,13 @@ public class CarService {
 
     public List<Car> findAll() {
        return carRepository.findAll();
+    }
+
+    public Car findById(String id) {
+        return carRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Car with id: " + id + " not found"));
+    }
+
+    public void deleteById(String id) {
+        carRepository.deleteById(id);
     }
 }

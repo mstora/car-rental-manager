@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Details View</title>
+</head>
+<body>
+
+<h2 th:text="${car.id}">Id</h2> <br>
+<h3 th:text="${car.brand}">Brand</h3>
+<h3 th:text="${car.model}">Model</h3><br>
+<p th:text="${car.mileage}">Mileage</p>
+<p th:text="${car.isDamaged()}">Damage</p>
+<p th:text="${car.isAvailable()}">Availability</p>
+<p th:text="${car.pricePerDay}">Price Per Day</p>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Car</th>
+        <th>Client</th>
+        <th>Date of rental</th>
+        <th>Date of return</th>
+        <th>Distance</th>
+        <th>Damaged</th>
+        <th>Rented</th>
+        <th>Deposit</th>
+        <th>Total Price</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rental:${car.rentals}">
+        <td th:text="${rental.id}">ID</td>
+        <td th:text="${rental.car.getId()}">Car</td>
+        <td th:text="${rental.client.getId()}">Client</td>
+        <td th:text="${rental.dateOfRental}">Rented on</td>
+        <td th:text="${rental.dateOfReturn}">Returned on</td>
+        <td th:text="${rental.mileage}">Distance</td>
+        <td th:text="${rental.isDamaged()}">IsDamaged</td>
+        <td th:text="${rental.isRented()}">Is Rented</td>
+        <td th:text="${rental.deposit}">Deposit</td>
+        <td th:text="${rental.totalPrice}">Total Price</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/cars">Go back to cars list</a>
+</body>
+</html>

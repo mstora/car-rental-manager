@@ -22,4 +22,5 @@ public class RentalService {
     public Rental findById(Long id) {
         return rentalRepository.findById(id).orElseThrow(()-> new ItemNotFoundException("Item not found"));
     }
+
 }
