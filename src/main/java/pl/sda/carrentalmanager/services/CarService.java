@@ -6,7 +6,6 @@ import pl.sda.carrentalmanager.models.Car;
 import pl.sda.carrentalmanager.repositories.CarRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CarService {
@@ -18,7 +17,7 @@ public class CarService {
     }
 
     public List<Car> findAll() {
-        return carRepository.findAll().stream().filter(Car::isExist).collect(Collectors.toList());
+        return carRepository.findByExist(true);
     }
 
     public Car findById(String id) {
