@@ -1,9 +1,9 @@
-insert into CAR (ID, BRAND, MODEL, MILEAGE, IS_DAMAGED, IS_AVAILABLE, PRICE_PER_DAY)
-values ('PP42069', 'Fiat', 'Multipla', 123456, 0, 1, 150),
-('PO00123', 'Ford', 'Kuga', 20100, 0,1, 300),
-('PO5553', 'Mazda', '3', 5000, 0, 1, 250),
-('PO9933', 'VW', 'Passat', 12000, 0, 0 , 300),
-('PO4343', 'BMW', '5', 8000, 0, 0, 550);
+insert into CAR (ID, BRAND, MODEL, MILEAGE, IS_DAMAGED, IS_AVAILABLE, PRICE_PER_DAY, EXIST)
+values ('PP42069', 'Fiat', 'Multipla', 123456, 0, 1, 150, 1),
+('PO00123', 'Ford', 'Kuga', 20100, 0,1, 300, 1),
+('PO5553', 'Mazda', '3', 5000, 0, 1, 250, 1),
+('PO9933', 'VW', 'Passat', 12000, 0, 0 , 300, 1),
+('PO4343', 'BMW', '5', 8000, 0, 0, 550, 1);
 
 insert into CLIENT (id, name, last_name, date_of_birth)
 values ('90101012345', 'Lukasz', 'Tararynowicz', '1990-10-10'),

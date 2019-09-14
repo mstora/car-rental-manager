@@ -33,5 +33,9 @@ public class CarController {
         return modelAndView;
     }
 
-
+    @GetMapping("/cars/delete/{id}")
+    public String carDeleteById(@PathVariable String id) {
+        carService.deleteById(id);
+        return "redirect:/cars";
+    }
 }

@@ -6,6 +6,7 @@ import pl.sda.carrentalmanager.models.Car;
 import pl.sda.carrentalmanager.repositories.CarRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarService {
@@ -17,14 +18,18 @@ public class CarService {
     }
 
     public List<Car> findAll() {
-       return carRepository.findAll();
+        return carRepository.findAll().stream().filter(Car::isExist).collect(Collectors.toList());
     }
 
     public Car findById(String id) {
-        return carRepository.findById(id).orElseThrow(() -> new ItemNotFoundException("Car with id: " + id + " not found"));
+        return carRepository
+                .findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Car with id: " + id + " not found"));
     }
 
     public void deleteById(String id) {
-        carRepository.deleteById(id);
+        Car carTemp = findById(id);
+        carTemp.setExist(false);
+        carRepository.save(carTemp);
     }
 }
