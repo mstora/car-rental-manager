@@ -20,23 +20,13 @@
         <td th:text="${client.name}">First</td>
         <td th:text="${client.lastName}">Lastname</td>
         <td th:text="${client.dateOfBirth}">DateOfBirth</td>
+        <td><a th:href="@{'/clients/'+${client.id}}">Details</a></td>
+
     </tr>
     </tbody>
 </table>
-
-
-
-
-
-
-
-
+<div>
+    <a href="/">Go back</a>
+</div>
 </body>
-
-
-
-
-
-
-
 </html>

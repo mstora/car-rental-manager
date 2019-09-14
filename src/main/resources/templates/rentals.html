@@ -35,8 +35,12 @@
         <td th:text="${rental.isRented()}">Is Rented</td>
         <td th:text="${rental.deposit}">Deposit</td>
         <td th:text="${rental.totalPrice}">Total Price</td>
+        <td><a th:href="@{'/rentals/'+${rental.id}}">Details</a></td>
     </tr>
     </tbody>
 </table>
+<div>
+    <a href="/">Go back</a>
+</div>
 </body>
 </html>
