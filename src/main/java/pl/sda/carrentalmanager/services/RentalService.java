@@ -1,6 +1,7 @@
 package pl.sda.carrentalmanager.services;
 
 import org.springframework.stereotype.Service;
+import pl.sda.carrentalmanager.exceptions.ItemNotFoundException;
 import pl.sda.carrentalmanager.models.Rental;
 import pl.sda.carrentalmanager.repositories.RentalRepository;
 
@@ -16,6 +17,10 @@ public class RentalService {
 
     public List<Rental> findAll() {
         return rentalRepository.findAll();
+    }
+
+    public Rental findById(Long id) {
+        return rentalRepository.findById(id).orElseThrow(()-> new ItemNotFoundException("Item not found"));
     }
 
 }

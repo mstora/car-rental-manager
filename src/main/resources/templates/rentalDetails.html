@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental Details</title>
+</head>
+<body>
+<div>
+    <h2>Rental</h2>
+    <p th:text="${rental.id}"></p>
+    <p th:text="${rental.dateOfRental}"></p>
+    <p th:text="${rental.dateOfReturn}"></p>
+    <p th:text="${rental.mileage}"></p>
+    <p th:text="${rental.mileage}"></p>
+    <p th:text="${rental.isDamaged()}"></p>
+    <p th:text="${rental.isRented()}"></p>
+    <p th:text="${rental.deposit}"></p>
+    <p th:text="${rental.totalPrice}"></p>
+</div>
+<div>
+    <h2>Car</h2>
+    <p th:text="${rental.car.id}"></p>
+    <p th:text="${rental.car.brand}"></p>
+    <p th:text="${rental.car.model}"></p>
+    <p th:text="${rental.car.mileage}"></p>
+
+</div>
+<div>
+    <h2>Client</h2>
+    <p th:text="${rental.client.id}"></p>
+    <p th:text="${rental.client.name}"></p>
+    <p th:text="${rental.client.lastName}"></p>
+</div>
+</body>
+</html>
