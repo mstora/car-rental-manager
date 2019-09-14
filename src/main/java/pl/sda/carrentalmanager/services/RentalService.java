@@ -17,4 +17,5 @@ public class RentalService {
     public List<Rental> findAll() {
         return rentalRepository.findAll();
     }
+
 }
