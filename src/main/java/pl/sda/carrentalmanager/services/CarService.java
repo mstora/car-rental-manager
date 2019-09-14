@@ -1,11 +1,11 @@
 package pl.sda.carrentalmanager.services;
 
 import org.springframework.stereotype.Service;
+import pl.sda.carrentalmanager.exceptions.CarNotFoundException;
 import pl.sda.carrentalmanager.models.Car;
 import pl.sda.carrentalmanager.repositories.CarRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CarService {
@@ -20,7 +20,11 @@ public class CarService {
        return carRepository.findAll();
     }
 
-    public Optional<Car> findById(String id) {
-        return carRepository.findById(id);
+    public Car findById(String id) {
+        return carRepository.findById(id).orElseThrow(() -> new CarNotFoundException("Car with id: " + id + " not found"));
+    }
+
+    public void deleteById(String id) {
+//        Car car = carRepository.f
     }
 }

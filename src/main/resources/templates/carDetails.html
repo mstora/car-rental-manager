@@ -31,7 +31,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="rental:${rentals}">
+    <tr th:each="rental:${car.rentals}">
         <td th:text="${rental.id}">ID</td>
         <td th:text="${rental.car.getId()}">Car</td>
         <td th:text="${rental.client.getId()}">Client</td>
