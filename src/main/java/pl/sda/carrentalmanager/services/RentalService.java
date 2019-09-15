@@ -20,7 +20,13 @@ public class RentalService {
     }
 
     public Rental findById(Long id) {
-        return rentalRepository.findById(id).orElseThrow(()-> new ItemNotFoundException("Item not found"));
+        return rentalRepository
+                .findById(id)
+                .orElseThrow(()-> new ItemNotFoundException("Item not found"));
+    }
+
+    public Rental save(Rental rental) {
+        return rentalRepository.save(rental);
     }
 
 }

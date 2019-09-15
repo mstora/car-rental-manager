@@ -31,4 +31,8 @@ public class CarService {
         carTemp.setExist(false);
         carRepository.save(carTemp);
     }
+
+    public Car save(Car car) {
+        return carRepository.save(car);
+    }
 }
