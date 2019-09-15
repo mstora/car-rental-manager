@@ -23,17 +23,19 @@ public class Car {
     private boolean exist;
 
     public Car() {
+        this.isAvailable = true;
+        this.exist = true;
     }
 
-    public Car(String id, String brand, String model, int mileage, boolean isDamaged, boolean isAvailable, int pricePerDay, boolean exist) {
+    public Car(String id, String brand, String model, int pricePerDay, int mileage) {
         this.id = id;
         this.brand = brand;
         this.model = model;
-        this.mileage = mileage;
-        this.isDamaged = isDamaged;
-        this.isAvailable = isAvailable;
+        this.isDamaged = false;
+        this.isAvailable = true;
         this.pricePerDay = pricePerDay;
-        this.exist = exist;
+        this.exist = true;
+        this.mileage = mileage;
     }
 
     public boolean isExist() {
