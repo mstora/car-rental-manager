@@ -35,4 +35,15 @@ public class CarService {
     public Car save(Car car) {
         return carRepository.save(car);
     }
+
+    public List<Car> findByIsDamaged(boolean isDamaged) {
+        return carRepository.findByIsDamaged(isDamaged);
+    }
+    public List<Car> findByIsAvailable(boolean isAvailable) {
+        return carRepository.findByIsAvailable(isAvailable);
+    }
+
+    public List<Car> findByIsDamagedAndIsAvailableAndExist(boolean isDamaged, boolean isAvailable, boolean exist) {
+        return carRepository.findByIsDamagedAndIsAvailableAndExist(isDamaged, isAvailable, exist);
+    }
 }

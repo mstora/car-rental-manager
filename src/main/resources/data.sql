@@ -14,8 +14,8 @@ values ('90101012345', 'Lukasz', 'Tararynowicz', '1990-10-10'),
 ('90022812345', 'Jeżuś', 'Chytrus', '1990-02-28');
 
 insert into RENTAL (id, car_id, client_id, date_of_rental,
-                    date_of_return, mileage, is_damaged,
-                    is_rented, deposit, total_price)
+                    date_of_return, mileage, damaged,
+                    rented, deposit, total_price)
 values
 (nextval('rent_seq'), 'PP42069', '87122512345', '2019-01-20', '2019-01-22', 120, 0, 0, 100, 300),
 (nextval('rent_seq'),'PP42069', '69042012345', '2019-02-05', '2019-02-10', 300, 0, 0, 250, 750),
