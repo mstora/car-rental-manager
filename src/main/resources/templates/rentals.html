@@ -32,7 +32,7 @@
         <td th:text="${rental.dateOfReturn}">Returned on</td>
         <td th:text="${rental.mileage}">Distance</td>
         <td th:text="${rental.isDamaged()}">IsDamaged</td>
-        <td th:text="${rental.isRented()}">Is Rented</td>
+        <td th:text="${rental.isActive()}">Is Rented</td>
         <td th:text="${rental.deposit}">Deposit</td>
         <td th:text="${rental.totalPrice}">Total Price</td>
         <td><a th:href="@{'/rentals/'+${rental.id}}">Details</a></td>

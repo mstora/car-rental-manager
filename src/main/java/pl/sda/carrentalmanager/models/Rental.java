@@ -25,7 +25,7 @@ public class Rental {
     private LocalDate dateOfReturn;
     private int mileage;
     private boolean damaged;
-    private boolean rented;
+    private boolean active;
     private int deposit;
     private int totalPrice;
 
@@ -40,7 +40,7 @@ public class Rental {
         this.dateOfReturn = dateOfReturn;
         this.mileage = mileage;
         this.damaged = damaged;
-        this.rented = rented;
+        this.active = rented;
         this.deposit = deposit;
         this.totalPrice = totalPrice;
     }
@@ -101,12 +101,12 @@ public class Rental {
         this.damaged = damaged;
     }
 
-    public boolean isRented() {
-        return rented;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setRented(boolean rented) {
-        this.rented = rented;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public int getDeposit() {
@@ -132,7 +132,7 @@ public class Rental {
         Rental rental = (Rental) o;
         return mileage == rental.mileage &&
                 damaged == rental.damaged &&
-                rented == rental.rented &&
+                active == rental.active &&
                 deposit == rental.deposit &&
                 totalPrice == rental.totalPrice &&
                 Objects.equals(id, rental.id) &&
@@ -144,6 +144,6 @@ public class Rental {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, car, client, dateOfRental, dateOfReturn, mileage, damaged, rented, deposit, totalPrice);
+        return Objects.hash(id, car, client, dateOfRental, dateOfReturn, mileage, damaged, active, deposit, totalPrice);
     }
 }
