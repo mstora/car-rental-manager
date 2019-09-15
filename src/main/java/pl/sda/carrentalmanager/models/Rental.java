@@ -1,5 +1,7 @@
 package pl.sda.carrentalmanager.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -17,7 +19,9 @@ public class Rental {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfRental;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfReturn;
     private int mileage;
     private boolean isDamaged;

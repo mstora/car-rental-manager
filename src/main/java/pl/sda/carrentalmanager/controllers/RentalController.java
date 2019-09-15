@@ -2,7 +2,9 @@ package pl.sda.carrentalmanager.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.carrentalmanager.models.Rental;
 import pl.sda.carrentalmanager.services.RentalService;
@@ -30,5 +32,25 @@ public class RentalController {
         modelAndView.addObject("rental", rental);
 
         return modelAndView;
+    }
+
+    @GetMapping("/rental/form")
+    public ModelAndView addRentalView() {
+        ModelAndView modelAndView = new ModelAndView("formRental");
+        modelAndView.addObject("rental", new Rental());
+        modelAndView.addObject("update", false);
+        return modelAndView;
+    }
+
+    @PostMapping("/rental/add")
+    public String addRental(@ModelAttribute Rental rental) {
+        rentalService.save(rental);
+        return "redirect:/rentals";
+    }
+
+    @PostMapping("/rental/update")
+    public String updateRental(@ModelAttribute Rental rental) {
+        rentalService.save(rental);
+        return "redirect:/rentals/" + rental.getId();
     }
 }

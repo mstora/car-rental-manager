@@ -1,5 +1,7 @@
 package pl.sda.carrentalmanager.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -15,6 +17,7 @@ public class Client {
     private Long id;
     private String name;
     private String lastName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "client")
