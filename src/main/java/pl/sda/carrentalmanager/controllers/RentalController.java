@@ -56,6 +56,8 @@ public class RentalController {
     public String addRental(@ModelAttribute Rental rental) {
         rental.setDateOfRental(LocalDate.now());
         rental.getCar().setAvailable(false);
+        rental.setRented(true);
+        carService.save(rental.getCar());
         rentalService.save(rental);
         return "redirect:/rentals";
     }
