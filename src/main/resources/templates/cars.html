@@ -31,6 +31,8 @@
         <td th:text="${car.pricePerDay}">Price</td>
         <td><a th:href="@{'/cars/'+${car.id}}">Details</a></td>
         <td><a th:href="@{'/cars/delete/'+${car.id}}">Delete</a></td>
+        <td><a th:href="@{'/cars/rent/'+${car.id}}">Rent</a></td>
+        <td><a th:href="@{'/cars/update/'+${car.id}}">Update</a></td>
 
 
     </tr>
