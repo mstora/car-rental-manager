@@ -45,7 +45,8 @@ public class RentalController {
     @GetMapping("/rental/form")
     public ModelAndView addRentalView() {
         ModelAndView modelAndView = new ModelAndView("rentalForm");
-        modelAndView.addObject("cars", carService.findByIsDamagedAndIsAvailableAndExist(false, true, true));
+        modelAndView.addObject("cars",
+                carService.findByDamagedAndAvailableAndExist(false, true, true));
         modelAndView.addObject("clients", clientService.findAll());
         modelAndView.addObject("rental", new Rental());
         modelAndView.addObject("update", false);
@@ -56,7 +57,7 @@ public class RentalController {
     public String addRental(@ModelAttribute Rental rental) {
         rental.setDateOfRental(LocalDate.now());
         rental.getCar().setAvailable(false);
-        rental.setRented(true);
+        rental.setActive(true);
         carService.save(rental.getCar());
         rentalService.save(rental);
         return "redirect:/rentals";
