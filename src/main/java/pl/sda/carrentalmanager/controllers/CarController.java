@@ -49,7 +49,7 @@ public class CarController {
     }
 
     @GetMapping("/cars/update/{id}")
-    public ModelAndView carUpdate(@PathVariable String id) {
+    public ModelAndView carUpdateView(@PathVariable String id) {
         ModelAndView modelAndView = new ModelAndView("carForm");
         Car foundCar = carService.findById(id);
         modelAndView.addObject("car", foundCar);
@@ -63,7 +63,7 @@ public class CarController {
         return "redirect:" + car.getId();
     }
     @PostMapping("/cars/update")
-    public String carUpdate(@ModelAttribute Car car) {
+    public String carUpdateView(@ModelAttribute Car car) {
         carService.save(car);
         return "redirect:" + car.getId();
     }

@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Car form</title>
 </head>
 <body>
 <form method="POST" th:action="${update} ? '/cars/update' : '/cars/add'" th:object="${car}">
-<p>Car form</p>
-<br>
-<label>ID:<input type="text" th:field="*{id}" th:readonly="${update}"></label>
-<label>Brand:<input type="text" th:field="*{brand}"></label>
-<label>Model:<input type="text" th:field="*{model}"></label>
-<label>Price pre day:<input type="text" th:field="*{pricePerDay}"></label>
-<br/>
+    <p>Car form</p>
+    <br>
+    <label>ID:<input type="text" th:field="*{id}" th:readonly="${update}"></label>
+    <label>Brand:<input type="text" th:field="*{brand}"></label>
+    <label>Model:<input type="text" th:field="*{model}"></label>
+    <label>Price pre day:<input type="text" th:field="*{pricePerDay}"></label>
+    <div style="display: none">
+        <input type="text" th:field="*{available}" th:readonly="${update}">
+        <input type="text" th:field="*{damaged}" th:readonly="${update}">
+        <input type="text" th:field="*{exist}" th:readonly="${update}">
+        <input type="text" th:field="*{mileage}" th:readonly="${update}">
+    </div>
+    <br/>
     <input type="submit"></form>
+<br>
 <br>
 <a href="/cars">Go back to cars list</a>
 <a href="/">Home Page</a>

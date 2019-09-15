@@ -15,15 +15,15 @@ public class Car {
     private String brand;
     private String model;
     private int mileage;
-    private boolean isDamaged;
-    private boolean isAvailable;
+    private boolean damaged;
+    private boolean available;
     private int pricePerDay;
     @OneToMany(mappedBy = "car")
     private Set<Rental> rentals = new HashSet<>();
     private boolean exist;
 
     public Car() {
-        this.isAvailable = true;
+        this.available = true;
         this.exist = true;
     }
 
@@ -31,8 +31,8 @@ public class Car {
         this.id = id;
         this.brand = brand;
         this.model = model;
-        this.isDamaged = false;
-        this.isAvailable = true;
+        this.damaged = false;
+        this.available = true;
         this.pricePerDay = pricePerDay;
         this.exist = true;
         this.mileage = mileage;
@@ -79,19 +79,19 @@ public class Car {
     }
 
     public boolean isDamaged() {
-        return isDamaged;
+        return damaged;
     }
 
     public void setDamaged(boolean damaged) {
-        isDamaged = damaged;
+        this.damaged = damaged;
     }
 
     public boolean isAvailable() {
-        return isAvailable;
+        return available;
     }
 
     public void setAvailable(boolean available) {
-        isAvailable = available;
+        this.available = available;
     }
 
     public int getPricePerDay() {
@@ -116,8 +116,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return mileage == car.mileage &&
-                isDamaged == car.isDamaged &&
-                isAvailable == car.isAvailable &&
+                damaged == car.damaged &&
+                available == car.available &&
                 pricePerDay == car.pricePerDay &&
                 exist == car.exist &&
                 Objects.equals(id, car.id) &&
@@ -127,7 +127,7 @@ public class Car {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, mileage, isDamaged, isAvailable, pricePerDay, exist);
+        return Objects.hash(id, brand, model, mileage, damaged, available, pricePerDay, exist);
     }
 }
 
