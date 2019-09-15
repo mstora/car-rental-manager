@@ -32,8 +32,8 @@ public class CarService {
         carRepository.save(carTemp);
     }
 
-    public Car save(Car car) {
-        return carRepository.save(car);
+    public void save(Car car) {
+        carRepository.save(car);
     }
 
     public List<Car> findByIsDamaged(boolean isDamaged) {

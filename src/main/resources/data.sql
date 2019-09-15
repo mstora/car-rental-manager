@@ -1,4 +1,4 @@
-insert into CAR (ID, BRAND, MODEL, MILEAGE, IS_DAMAGED, IS_AVAILABLE, PRICE_PER_DAY, EXIST)
+insert into CAR (ID, BRAND, MODEL, MILEAGE, DAMAGED, AVAILABLE, PRICE_PER_DAY, EXIST)
 values ('PP42069', 'Fiat', 'Multipla', 123456, 0, 1, 150, 1),
 ('PO00123', 'Ford', 'Kuga', 20100, 0,1, 300, 1),
 ('PO5553', 'Mazda', '3', 5000, 0, 1, 250, 1),
