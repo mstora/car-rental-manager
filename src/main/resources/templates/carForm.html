@@ -5,7 +5,7 @@
     <title>Car form</title>
 </head>
 <body>
-<form method="POST" th:action="${update} ? '/cars/update' : '/cars/add'" th:object="${car}">
+<form method="POST" action="/cars/add" th:object="${car}">
     <p>Car form</p>
     <br>
     <label>ID:<input type="text" th:field="*{id}" th:readonly="${update}"></label>

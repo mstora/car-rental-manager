@@ -62,9 +62,4 @@ public class CarController {
         carService.save(car);
         return "redirect:" + car.getId();
     }
-    @PostMapping("/cars/update")
-    public String carUpdateView(@ModelAttribute Car car) {
-        carService.save(car);
-        return "redirect:" + car.getId();
-    }
 }
