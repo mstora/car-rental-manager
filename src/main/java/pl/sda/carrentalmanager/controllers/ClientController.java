@@ -17,7 +17,7 @@ public class ClientController {
     @GetMapping("/clients")
     public ModelAndView ListOfClients() {
         ModelAndView modelAndView = new ModelAndView("clients");
-        modelAndView.addObject("clients", clientService.getAll());
+        modelAndView.addObject("clients", clientService.findAll());
         return modelAndView;
     }
 }
