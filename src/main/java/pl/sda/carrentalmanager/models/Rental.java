@@ -13,10 +13,10 @@ public class Rental {
     @GeneratedValue(generator = "rentSeq")
     @SequenceGenerator(name = "rentSeq", sequenceName = "rent_seq", allocationSize = 1, initialValue = 1)
     private Long id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")
     private Car car;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id")
     private Client client;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -24,23 +24,23 @@ public class Rental {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfReturn;
     private int mileage;
-    private boolean isDamaged;
-    private boolean isRented;
+    private boolean damaged;
+    private boolean rented;
     private int deposit;
     private int totalPrice;
 
     public Rental() {
     }
 
-    public Rental(Long id, Car car, Client client, LocalDate dateOfRental, LocalDate dateOfReturn, int mileage, boolean isDamaged, boolean isRented, int deposit, int totalPrice) {
-        this.id = id;
+    public Rental(Car car, Client client, LocalDate dateOfRental,
+                  LocalDate dateOfReturn, int mileage, boolean damaged, boolean rented, int deposit, int totalPrice) {
         this.car = car;
         this.client = client;
         this.dateOfRental = dateOfRental;
         this.dateOfReturn = dateOfReturn;
         this.mileage = mileage;
-        this.isDamaged = isDamaged;
-        this.isRented = isRented;
+        this.damaged = damaged;
+        this.rented = rented;
         this.deposit = deposit;
         this.totalPrice = totalPrice;
     }
@@ -94,19 +94,19 @@ public class Rental {
     }
 
     public boolean isDamaged() {
-        return isDamaged;
+        return damaged;
     }
 
     public void setDamaged(boolean damaged) {
-        isDamaged = damaged;
+        this.damaged = damaged;
     }
 
     public boolean isRented() {
-        return isRented;
+        return rented;
     }
 
     public void setRented(boolean rented) {
-        isRented = rented;
+        this.rented = rented;
     }
 
     public int getDeposit() {
@@ -131,8 +131,8 @@ public class Rental {
         if (o == null || getClass() != o.getClass()) return false;
         Rental rental = (Rental) o;
         return mileage == rental.mileage &&
-                isDamaged == rental.isDamaged &&
-                isRented == rental.isRented &&
+                damaged == rental.damaged &&
+                rented == rental.rented &&
                 deposit == rental.deposit &&
                 totalPrice == rental.totalPrice &&
                 Objects.equals(id, rental.id) &&
@@ -144,6 +144,6 @@ public class Rental {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, car, client, dateOfRental, dateOfReturn, mileage, isDamaged, isRented, deposit, totalPrice);
+        return Objects.hash(id, car, client, dateOfRental, dateOfReturn, mileage, damaged, rented, deposit, totalPrice);
     }
 }

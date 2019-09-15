@@ -9,23 +9,32 @@
 
 <!--TODO: EXISTING/NEW USER FLAG-->
 <!--TODO: UPDATE/ADD FLAG-->
-<form method="POST" th:action="${update} ? '/rental/update' : '/rental/add'" th:object="${rental}">
+<form method="POST" action="/rental/add" th:object="${rental}">
     <p>Dane Klienta:</p>
     <br>
-    <label>ID:<input type="text" th:field="*{client.id}"></label>
-    <label>Name:<input type="text" th:field="*{client.name}"></label>
-    <label>Last Name:<input type="text" th:field="*{client.lastName}"></label>
-    <label>Date of birth:<input type="date" th:field="*{client.dateOfBirth}"></label>
+<!--    <label>ID:<input type="text" th:field="*{client.id}"></label><br/>-->
+<!--    <label>Name:<input type="text" th:field="*{client.name}"></label><br/>-->
+<!--    <label>Last Name:<input type="text" th:field="*{client.lastName}"></label><br/>-->
+<!--    <label>Date of birth:<input type="date" th:field="*{client.dateOfBirth}"></label>-->
+    <label>Client:
+        <select th:field="*{client}">
+            <option th:each="client:${clients}"
+                    th:value="${client.id}"
+                    th:text="'('+${client.id}+') '+ ${client.name} + ' ' + ${client.lastName}">
+            </option></select></label>
     <br/>
 
     <!--   2. Samochód -->
     <br/>
-    <label>Car:<select>
-        <option th:each="car:${cars}" th:value="${car.id}" th:text="${car.brand} + ' ' + ${car.model}"></option>
-    </select></label>
-    <!--   3. Data Zwrotu -->
+    <label>Car:<select th:field="*{car}">
+        <option th:each="car:${cars}"
+                th:value="${car.id}"
+                th:text="${car.brand} + ' ' + ${car.model}" ></option>
+    </select></label><br/>
 
-    <label>Date of return<input type="date"> </label>
+    <!--   4. Data Zwrotu -->
+
+    <label>Date of return<input type="date" th:field="*{dateOfReturn}"> </label>
 
     <input type="submit">
 </form>

@@ -25,8 +25,8 @@ public class RentalService {
                 .orElseThrow(()-> new ItemNotFoundException("Item not found"));
     }
 
-    public Rental save(Rental rental) {
-        return rentalRepository.save(rental);
+    public void save(Rental rental) {
+        rentalRepository.save(rental);
     }
 
 }
