@@ -13,10 +13,10 @@ public class Rental {
     @GeneratedValue(generator = "rentSeq")
     @SequenceGenerator(name = "rentSeq", sequenceName = "rent_seq", allocationSize = 1, initialValue = 1)
     private Long id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

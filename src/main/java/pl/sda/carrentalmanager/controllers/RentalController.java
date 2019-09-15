@@ -28,7 +28,6 @@ public class RentalController {
 
     @GetMapping("/rentals")
     public ModelAndView listOfRentals() {
-//        rentalService.refreshStatus();
         ModelAndView modelAndView = new ModelAndView("rentals");
         modelAndView.addObject("rentals", rentalService.findAll());
         return modelAndView;
