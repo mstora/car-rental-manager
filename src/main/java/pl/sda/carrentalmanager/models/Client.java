@@ -19,7 +19,6 @@ public class Client {
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dateOfBirth;
-
     @OneToMany(mappedBy = "client")
     private Set<Rental> rentals = new HashSet<>();
 
@@ -81,11 +80,12 @@ public class Client {
         return Objects.equals(id, client.id) &&
                 Objects.equals(name, client.name) &&
                 Objects.equals(lastName, client.lastName) &&
-                Objects.equals(dateOfBirth, client.dateOfBirth);
+                Objects.equals(dateOfBirth, client.dateOfBirth) &&
+                Objects.equals(rentals, client.rentals);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, lastName, dateOfBirth);
+        return Objects.hash(id, name, lastName, dateOfBirth, rentals);
     }
 }
